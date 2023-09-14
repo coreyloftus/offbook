@@ -1,0 +1,21 @@
+{"meta":{
+    "characters":["MRS. MOLLOY", "CORNELIUS", "MINNIE", "BARNABY", "DOLLY"],
+    "name":"Act 1 Scene 5",
+    "location":"The Hat Shop"
+},
+"lines":
+[
+    {"speaker":"MRS. MOLLOY", "text":"Oh, Minnie, we'll get an adventure out of this yet!"},
+    {"speaker":"Stage Directions", "text":"MRS. MOLLOY exits. BARNABY and CORNELIUS enter."},
+    {"speaker":"CORNELIUS", "text":"We'll get an adventure out of this yet, Barnaby! All day long we wander around New York and nothing happens, then we come to the quietest street in the city and suddenly..."},
+{"speaker":"BARNABY", "text":"Vandergelder!"},
+{"speaker":"CORNELIUS", "text":"Is he still out there? Go look."},
+{"speaker":"BARNABY", "text":"He's sitting on that bench. Cornelius, are you sure this is an daventure?"},
+{"speaker":"CORNELIUS", "text":"You don't have to ask, Barnaby. When you're in one you'll know it alright! How much money have you got left?"},
+{"speaker":"BARNABY", "text":"Not much, Cornelius. Forty cents for the train back, thirty cents for dinner, and twenty cents to see the whale. Ninety cents. Why?"},
+{"speaker":"CORNELIUS", "text":"When those women come out we'll have to pretend to be customers. Customers! That's it! Maybe the best thing to do is make them think we're rich. Then we won't have to spend anything! We're two men about town looking for hats for ladies. Good afternoon, Mrs. --"},
+{"speaker":"Stage Directions", "text":"MRS. MOLLOY enters."},
+{"speaker":"MRS. MOLLOY", "text":"Molloy"},
+{"speaker":"CORNELIUS", "text":"Here, Cornelius Hackl!"}
+]
+}
