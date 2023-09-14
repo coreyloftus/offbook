@@ -1,6 +1,21 @@
 import json
 import os
 
+import re
+
+# # Define a regex pattern to match punctuation
+# punctuation_pattern = r'[!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~]'
+
+# # Process user input: convert to lowercase and remove punctuation
+# user_processed = re.sub(punctuation_pattern, '', user_line.lower())
+
+# # Process the line["text"] in the same way
+# line_processed = re.sub(punctuation_pattern, '', line["text"].lower())
+
+# # Compare the processed strings
+# if user_processed == line_processed:
+#     # Your code here
+
 
 def welcome():
     print("*********************************************")
@@ -56,7 +71,7 @@ def run_lines(data, character):
             user_line = input(f"{line['speaker']}: ")
             if user_line == "quit":
                 break
-            if user_line == line["text"]:
+            if user_line.lower().strip([",", ".", "!"]) == line["text"]:
                 continue
             else:
                 print(f"{line['speaker']}: {line['text']}")
