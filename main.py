@@ -1,20 +1,6 @@
 import json
 import os
-
-import re
-
-# # Define a regex pattern to match punctuation
-# punctuation_pattern = r'[!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~]'
-
-# # Process user input: convert to lowercase and remove punctuation
-# user_processed = re.sub(punctuation_pattern, '', user_line.lower())
-
-# # Process the line["text"] in the same way
-# line_processed = re.sub(punctuation_pattern, '', line["text"].lower())
-
-# # Compare the processed strings
-# if user_processed == line_processed:
-#     # Your code here
+import string
 
 
 def welcome():
@@ -59,6 +45,26 @@ def display_scene(data):
     print(f"\n{data['meta']['name']} at {data['meta']['location']}")
 
 
+def check_line(correct_line, user_line):
+    correct_line = correct_line.lower().translate(
+        str.maketrans("", "", string.punctuation)
+    )
+    user_line = user_line.lower().translate(str.maketrans("", "", string.punctuation))
+
+    # Check for a perfect match
+    if correct_line == user_line:
+        return True
+
+    correct_words = correct_line.split()
+    user_words = user_line.split()
+
+    for i, (correct_word, user_word) in enumerate(zip(correct_words, user_words)):
+        if correct_word != user_word:
+            corrected_part = " ".join(correct_words[: i + 1])
+            next_word = correct_words[i + 1]
+            return f"{corrected_part} {next_word}"
+
+
 def run_lines(data, character):
     for line in data["lines"]:
         user_line = ""
@@ -68,14 +74,15 @@ def run_lines(data, character):
             else:
                 print(f"{line['speaker']}: {line['text']}")
         else:
-            user_line = input(f"{line['speaker']}: ")
-            if user_line == "quit":
-                break
-            if user_line.lower().strip([",", ".", "!"]) == line["text"]:
-                continue
-            else:
-                print(f"{line['speaker']}: {line['text']}")
-                continue
+            while user_line != line["text"]:
+                user_line = input(f"{line['speaker']}: ")
+                if user_line == "quit":
+                    break
+                res = check_line(line["text"], user_line)
+                if res is True:
+                    continue
+                else:
+                    print(f">>>>>>{line['speaker']}: {res}")
 
 
 def main():
